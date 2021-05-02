@@ -16,7 +16,7 @@ Also, having a community to help them was very important to me and that's why I 
 
 
 ## Me and programming langages (progression)
-- *01/03/2021* 
+- *03/05/2021* 
 
 | VHDL                        | Python                      | C                           |
 |-----------------------------|-----------------------------|-----------------------------|
