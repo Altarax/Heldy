@@ -1,5 +1,4 @@
 import discord
-from discord_secret import *
 from discord.ext import commands
 from main import client
 
@@ -67,7 +66,7 @@ async def on_raw_reaction_add(payload):
         await member.add_roles(role)
 
     # Guide Message 2
-    roles_msg_ID = 838398897826168842
+    roles_msg_ID = 840983022232797184
 
     if roles_msg_ID == payload.message_id:
         member = payload.member
@@ -81,6 +80,10 @@ async def on_raw_reaction_add(payload):
             role = discord.utils.get(guild.roles, name="Social")
         elif emoji == '🛏️':
             role = discord.utils.get(guild.roles, name="Psychologie")
+        elif emoji == '💱':
+            role = discord.utils.get(guild.roles, name="Commerce")
+        elif emoji == '🎨':
+            role = discord.utils.get(guild.roles, name="Arts & Spectacles")
         await member.add_roles(role)
 
     # Level Msg
@@ -222,7 +225,7 @@ async def on_raw_reaction_remove(payload):
             pass
 
     # Guide Message 2
-    roles_msg_ID = 838398897826168842
+    roles_msg_ID = 840983022232797184
 
     if roles_msg_ID == payload.message_id:
         guild = await(client.fetch_guild(payload.guild_id))
@@ -235,6 +238,10 @@ async def on_raw_reaction_remove(payload):
             role = discord.utils.get(guild.roles, name="Social")
         elif emoji == '🛏️':
             role = discord.utils.get(guild.roles, name="Psychologie")
+        elif emoji == '💱':
+            role = discord.utils.get(guild.roles, name="Commerce")
+        elif emoji == '🎨':
+            role = discord.utils.get(guild.roles, name="Arts & Spectacles")
 
         member = await(guild.fetch_member(payload.user_id))
         if member is not None:
@@ -418,6 +425,8 @@ async def role_msg2(ctx):
                                      "\n🔌 <@&835521379297132544> \n"
                                      "\n🆘 <@&838083198755405854> \n"
                                      "\n🛏️ <@&838397499643002891> \n"
+                                     "\n💱 <@&840902562018492426> \n"
+                                     "\n🎨 <@&840982404033150986> \n"
                                      "**")
 
     embed.add_field(name="🌈", value="**Explications : \n"
@@ -432,6 +441,8 @@ async def role_msg2(ctx):
     await message.add_reaction('🔌')
     await message.add_reaction('🆘')
     await message.add_reaction('🛏️')
+    await message.add_reaction('💱')
+    await message.add_reaction('🎨')
 
 
 @client.command(pass_context=True)
@@ -731,7 +742,9 @@ async def informatique(ctx):
     embed.add_field(name="🌈", value="**Un site qui regroupe des pdf en anglais d'une superbe qualité ! \n"
                                      "https://books.goalkicker.com/ \n"
                                      "\nBesoin d'apprendre des langages de programmation ? Suis ce lien : \n"
-                                     "https://www.learndev.info/ \nw"
+                                     "https://www.learndev.info/ \n"
+                                     "\n Beaucoup de choses qui peuvent vous intéresser : \n"
+                                     "https://sites.google.com/view/newecligne/accueil?authuser=0"
                                      "**")
 
     message = await ctx.send(embed=embed)
@@ -755,7 +768,9 @@ async def electronique(ctx):
                                      "\nPour faire du VHDL : \n"
                                      "https://www.unilim.fr/pages_perso/vahid.meghdadi-neyshabouri/vhdl.html \n"
                                      "\nPour faire de l'électronique et bien d'autres : \n"
-                                     "https://www.enib.fr/~kerhoas/index.html"
+                                     "https://www.enib.fr/~kerhoas/index.html\n"
+                                     "\n Beaucoup de choses qui peuvent vous intéresser : \n"
+                                     "https://sites.google.com/view/newecligne/accueil?authuser=0"
                                      "**")
 
     message = await ctx.send(embed=embed)
@@ -774,6 +789,8 @@ async def maths(ctx):
 
     embed.add_field(name="🌈", value="**Besoin d'annales et de corrections ? \n"
                                      "https://cristofari.pagesperso-orange.fr/ecrits.html \n"
+                                     "\n Beaucoup de choses qui peuvent vous intéresser : \n"
+                                     "https://sites.google.com/view/newecligne/accueil?authuser=0"
                                      "**")
 
     message = await ctx.send(embed=embed)
@@ -792,6 +809,8 @@ async def industriel(ctx):
 
     embed.add_field(name="🌈", value="**Tout sur les liaisons ! \n"
                                      "http://bboy78.free.fr/Cours%20TN01/C9_SolutionsTechnologiques.pdf \n"
+                                     "\n Beaucoup de choses qui peuvent vous intéresser : \n"
+                                     "https://sites.google.com/view/newecligne/accueil?authuser=0"
                                      "**")
 
     message = await ctx.send(embed=embed)
@@ -812,6 +831,61 @@ async def medecine(ctx):
                                      "Lien drive à venir : \n"
                                      "\nUn référentiel d'anatomie humaine : \n"
                                      "https://drive.google.com/file/d/1Xz-OPjPl57JSw5OOkBE48yI1HiTDe85O/view?usp=sharing \n"
+                                     "**")
+
+    message = await ctx.send(embed=embed)
+
+
+@client.command(pass_context=True)
+@commands.has_any_role(835886105131352115, 835957850178060318)
+async def lycee(ctx):
+    embed = discord.Embed(title="Ressources utiles !", colour=discord.Colour(0xF1E6B8),
+                          url="https://media.discordapp.net/attachments/833680986176225283/835302356253802526"
+                              "/logo_H_color.png")
+
+    embed.set_thumbnail(
+        url="https://media.discordapp.net/attachments/833680986176225283/835302356253802526/logo_H_color.png")
+    embed.set_author(name="Heldy", icon_url="https://cdn.discordapp.com/emojis/482704428512706583.gif?v=1")
+
+    embed.add_field(name="🌈", value="**\n Vous aider à réussir le bac: \n"
+                                     "http://www.gecif.net/#ab\n"
+                                     "https://www.bacdefrancais.net/deroulement-oral-bac-francais.php"
+                                     "**")
+
+    message = await ctx.send(embed=embed)
+
+
+@client.command(pass_context=True)
+@commands.has_any_role(835886105131352115, 835957850178060318)
+async def hebergement(ctx):
+    embed = discord.Embed(title="Catégorie hébergement !", colour=discord.Colour(0xF1E6B8),
+                          url="https://media.discordapp.net/attachments/833680986176225283/835302356253802526"
+                              "/logo_H_color.png")
+
+    embed.set_thumbnail(
+        url="https://media.discordapp.net/attachments/833680986176225283/835302356253802526/logo_H_color.png")
+    embed.set_author(name="Heldy", icon_url="https://cdn.discordapp.com/emojis/482704428512706583.gif?v=1")
+
+    embed.add_field(name="🌈", value="**\n 🌍 Aides sur l'hébergement : 🌍 \n"
+                                     "\n Dans cette catégorie vous trouverez des salons vous permettant "
+                                     "de discuter avec différents étudiants dans les régions qui vous "
+                                     "intéressent et demander par exemple pour les aides spécifiques aux régions "
+                                     "et surtout parler des hébergements et pourquoi pas de proposer des collocations "
+                                     "ou en demander ! Soyez créatifs et n'hésitez pas à demander de l'aide !\n "
+                                     "\n Voici tous les salons à votre disposition : \n"
+                                     "\n> <#839827549814915073>	\n"
+                                     "> <#839828900976656414>	\n"
+                                     "> <#839827800386961410>	\n"
+                                     "> <#839827866152861706>	\n"
+                                     "> <#839828367480979457>	\n"
+                                     "> <#839828241681743903>	\n"
+                                     "> <#839828856315052063>	\n"
+                                     "> <#839828282655768616>	\n"
+                                     "> <#839828320283262987>	\n"
+                                     "> <#839828216356929547>	\n"
+                                     "> <#839828403552649216>	\n"
+                                     "> <#839827812109123648>	\n"
+                                     "> <#839828179836600320>	\n"
                                      "**")
 
     message = await ctx.send(embed=embed)

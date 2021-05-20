@@ -35,7 +35,7 @@ async def rainbow_role():
             if role.id == 835876045273038919:
                 for colour in colours:
                     await role.edit(color=colour)
-                    await asyncio.sleep(1)
+                    await asyncio.sleep(10)
 
 
 @client.event
@@ -103,5 +103,10 @@ async def suggest(ctx, *, suggestion):
     message = await channel.send(embed=suggestEmbed)
     await message.add_reaction('✅')
     await message.add_reaction('❎')
+
+initial_extensions = ['cogs.auto_message']
+
+for extension in initial_extensions:
+    client.load_extension(extension)
 
 client.run(token)
